@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenxiaofeng.aibi.mapper.ChartMapper">
+
+    <resultMap id="BaseResultMap" type="com.chenxiaofeng.aibi.model.entity.Chart">
+            <id property="id" column="id" />
+            <result property="chartName" column="chartName" />
+            <result property="goal" column="goal" />
+            <result property="chartData" column="chartData" />
+            <result property="chartType" column="chartType" />
+            <result property="genChart" column="genChart" />
+            <result property="genResult" column="genResult" />
+            <result property="userId" column="userId" />
+            <result property="genStatus" column="genStatus" />
+            <result property="execMessage" column="execMessage" />
+            <result property="createTime" column="createTime" />
+            <result property="updateTime" column="updateTime" />
+            <result property="isDelete" column="isDelete" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,chartName,goal,chartData,chartType,genChart,genResult,
+        userId,createTime,updateTime,isDelete
+    </sql>
+
+    <update id="creatChartTable">
+        CREATE TABLE IF NOT EXISTS chart_#{chartId} (
+        chartId bigint auto_increment comment 'chartId' primary key,
+        <foreach collection="colList" item="column" separator=",">
+            <if test="column.columnName != null and column.columnName != '' and column.columnType != null and column.columnType != ''">
+                `${column.columnName}` ${column.columnType} null
+            </if>
+        </foreach>
+        ) comment '${chartId}图表原始数据' collate = utf8mb4_unicode_ci;
+    </update>
+
+    <insert id="insertBatchChart" parameterType="list">
+        insert into chart_#{chartId}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <foreach collection="columns" item="column" separator=",">
+                ${column}
+            </foreach>
+        </trim>
+        VALUES
+        <foreach collection="data" item="item" separator=",">
+            (
+            <foreach collection="item.entrySet()" item="entry" separator=",">
+                #{entry.value}
+            </foreach>
+            )
+        </foreach>
+
+    </insert>
+</mapper>
