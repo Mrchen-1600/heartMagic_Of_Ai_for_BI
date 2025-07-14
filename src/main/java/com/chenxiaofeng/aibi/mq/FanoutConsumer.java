@@ -11,7 +11,6 @@ import java.nio.charset.StandardCharsets;
  * 交换机: 一个生产者给多个队列发消息,1个生产者对多个队列
  *  交换机的作用:类似网路由器.提供转发功能
  *  要解决问题: 怎么把消息转发到不同的队列上,让消费者从不同队列消费
- *
  * 发布订阅（fanout）：消费者
  */
 public class FanoutConsumer {

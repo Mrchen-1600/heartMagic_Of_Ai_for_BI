@@ -27,7 +27,6 @@ public enum ErrorCode {
      * 信息
      */
     private final String message;
-
     ErrorCode(int code, String message) {
         this.code = code;
         this.message = message;

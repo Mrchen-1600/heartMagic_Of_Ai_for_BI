@@ -2,6 +2,7 @@ package com.chenxiaofeng.aibi.model.dto.chart;
 
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -26,6 +27,6 @@ public class GenChartByAiRequest implements Serializable {
      * 图表类型
      */
     private String chartType;
-
+    @Serial
     private static final long serialVersionUID = 1L;
 }

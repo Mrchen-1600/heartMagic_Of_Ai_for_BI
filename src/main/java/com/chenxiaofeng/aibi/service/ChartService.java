@@ -1,16 +1,15 @@
 package com.chenxiaofeng.aibi.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.chenxiaofeng.aibi.base.SqlEntity;
+
 import com.chenxiaofeng.aibi.model.dto.chart.ChartQueryRequest;
 import com.chenxiaofeng.aibi.model.entity.Chart;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.chenxiaofeng.aibi.model.vo.chart.ChartVO;
-import org.apache.ibatis.annotations.Param;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Map;
+
 
 /**
  *

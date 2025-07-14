@@ -1,9 +1,8 @@
 package com.chenxiaofeng.aibi.model.dto.user;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -33,5 +32,6 @@ public class UserInfoUpdateRequest implements Serializable {
      */
     private String userProfile;
 
+    @Serial
     private static final long serialVersionUID = 1L;
 }
